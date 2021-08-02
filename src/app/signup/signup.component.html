@@ -1,0 +1,35 @@
+<form [formGroup]="signupForm" class="container-fluid">
+    User Name: 
+    <div [ngClass]="{'has-error': f.username.errors && f.username.touched }">
+        <input type="text" name="" id="" class="form-control" formControlName="username">
+        <span *ngIf="f.username.errors?.minlength && f.username.touched" class="alert-danger">
+            User Name must be atleast 5 characters<br/>
+        </span>
+        <span *ngIf="f.username.errors?.maxlength && f.username.touched" class="alert-danger">
+            User Name must be max of  10 characters<br/>
+        </span>
+        <span *ngIf="f.username.errors.required && f.username.touched" class="alert-danger">
+            User Name cannot be blank <br/>
+        </span>
+    </div>    
+    Password: 
+    <div [ngClass]="{'has-error': f.password.errors && f.password.touched }">
+        <input type="password" name="" id="" class="form-control" formControlName="password">
+    </div>
+    Confirm Password: 
+    <div [ngClass]="{'has-error': f.cpassword.errors && f.cpassword.touched }">
+    <input type="password" name="" id="" class="form-control" formControlName="cpassword">
+    </div>
+    First Name: <input type="text" name="" id="" class="form-control" formControlName="firstName">
+    Last Name: <input type="text" name="" id="" class="form-control" formControlName="lastName">
+    Phone: <input type="number" name="" id="" class="form-control" formControlName="phone">
+    Email: <input type="email" name="" id="" class="form-control" formControlName="email">
+    <br>
+    <input type="button" value="Sign Up" class="btn btn-success" (click)="fn1()">&nbsp;
+    <input type="reset" value="Reset" class="btn btn-warning">
+</form>
+<br>
+{{f.username.errors | json}} <br>
+
+
+{{signupForm.value | json}}

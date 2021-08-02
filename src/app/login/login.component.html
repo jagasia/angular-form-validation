@@ -1,0 +1,10 @@
+<form class="container-fluid">
+    <!-- User Name: <input type="text" name="" id="" class="form-control" [value]="uid"> -->
+    User Name: <input type="text" name="x" id="" class="form-control" [(ngModel)]="uid">
+    Password: <input type="password" name="y" id="" class="form-control" [(ngModel)]="pwd"><br>
+    <input type="button" value="Login" class="btn btn-success" (click)="fn1()">
+    &nbsp;<input type="reset" value="Reset" class="btn btn-warning">
+</form>
+<div>{{message}}</div>
+<br>
+{{uid}}
