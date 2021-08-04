@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+// import { EventEmitter } from 'stream';     //wrong
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @Input() title:string='This is title';
+  @Output() loginEvent=new EventEmitter();
   uid:string='rama';
   pwd:string='';
   message:string='';
@@ -22,13 +25,7 @@ export class LoginComponent implements OnInit {
   }
   fn1()
   {
-    alert(this.uid+" : "+this.pwd)
-    if(this.uid==this.pwd)
-    {
-      this.message='Login Failed';   
-    }
-    else{
-      this.message='Login is successful';
-    }
+    // alert(this.uid+" : "+this.pwd)
+    this.loginEvent.emit(this.uid+","+this.pwd);    
   }
 }
